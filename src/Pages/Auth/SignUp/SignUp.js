@@ -6,6 +6,11 @@ import useFirebase from '../../hooks/useFirebase';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
+    const { handleSigninWithGoogle, customGoogleErr } = useFirebase()
+    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
+    const navigate = useNavigate()
+
+    // User information
     const [userInfo, setUserInfo] = useState({
         name: '',
         email: '',
@@ -13,9 +18,7 @@ const SignUp = () => {
         confirmPassword: ''
     })
 
-    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
-    const navigate = useNavigate()
-
+    // User error when incorrect info occurs
     const [userError, setUserError] = useState({
         nameErr: '',
         emailErr: '',
@@ -24,21 +27,23 @@ const SignUp = () => {
         others: ''
     })
 
-    const { handleSigninWithGoogle, customGoogleErr } = useFirebase()
-
+    //React firebase hooks- create new user function 
     const [
         createUserWithEmailAndPassword,
         user,
         ,
         emailPassError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    // If user logged in then redirect to home page
     useEffect(() => {
         if (user) {
             navigate('/')
         }
     }, [user])
 
+
+    // Custom errors, when something happen into server.
     useEffect(() => {
         if (emailPassError) {
             switch (emailPassError?.code) {
@@ -51,6 +56,8 @@ const SignUp = () => {
         }
     }, [userError, emailPassError])
 
+
+    // Submit button visibibity handle
     useEffect(() => {
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
             setIsFieldsEmpty(false)
@@ -59,6 +66,8 @@ const SignUp = () => {
         }
     }, [userInfo.name, userInfo.email, userInfo.password, userInfo.confirmPassword])
 
+
+    // Handle sign up with email and password
     const handleSignupForm = e => {
         e.preventDefault()
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
@@ -68,6 +77,7 @@ const SignUp = () => {
         }
     }
 
+    // Name field validation
     const handleNameonChange = e => {
         const userName = e.target.value
         if (userName.length > 3) {
@@ -79,6 +89,7 @@ const SignUp = () => {
         }
     }
 
+    // Email field validation
     const handleEmailonChange = e => {
         const userEmail = e.target.value;
         const emailRegex = /\S+@\S+\.\S+/
@@ -91,6 +102,7 @@ const SignUp = () => {
         }
     }
 
+    // Password field validation
     const handlePasswordonChange = e => {
         const userPassword = e.target.value;
         const isContainsUppercase = /(?=.*[A-Z])/
@@ -114,6 +126,7 @@ const SignUp = () => {
         }
     }
 
+    // Confirm password field validation
     const handleConfirmPasswordonChange = e => {
         const confirmPass = e.target.value
         if (userInfo.password === confirmPass) {

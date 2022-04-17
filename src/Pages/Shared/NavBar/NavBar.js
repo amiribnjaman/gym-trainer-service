@@ -11,6 +11,7 @@ const NavBar = () => {
     const [showMenu, setShowMenu] = useState(false)
     const { user } = useFirebase()
 
+    // Handle logout
     const handleLogout = () => {
         signOut(auth);
     }

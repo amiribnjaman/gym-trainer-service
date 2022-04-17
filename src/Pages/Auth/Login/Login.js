@@ -6,24 +6,18 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Login = () => {
+    const { handleSigninWithGoogle, user } = useFirebase()
+    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
+    const [customError, setCustomError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
+
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: ''
     })
-    const { handleSigninWithGoogle, user } = useFirebase()
-    const location = useLocation()
 
-    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
-    const navigate = useNavigate()
-
-    let from = location.state?.from?.pathname || "/";
-
-    if (user) {
-        navigate(from, { replace: true });
-    }
-
-    const [customError, setCustomError] = useState('')
-
+    //React fireabase hooks- Email & password signin function 
     const [
         signInWithEmailAndPassword,
         ,
@@ -31,8 +25,13 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    // If a user exists, then redirects to the previes page where he wanted to access. 
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
-
+    // Handle Log in using email and password through React firebase hooks
     const handleLoginForm = e => {
         e.preventDefault()
         if (userInfo.email && userInfo.password) {
@@ -40,12 +39,7 @@ const Login = () => {
         }
     }
 
-    useEffect(() => {
-        if (userInfo.email && userInfo.password) {
-            setIsFieldsEmpty(false)
-        }
-    }, [userInfo.email, userInfo.password])
-
+    // Validation email field
     const handleEmailonChange = e => {
         const userEmail = e.target.value;
         const emailRegex = /\S+@\S+\.\S+/
@@ -56,6 +50,7 @@ const Login = () => {
         }
     }
 
+    // Validation password field
     const handlePasswordonChange = e => {
         const userPassword = e.target.value
         if (userPassword.length >= 8) {
@@ -65,6 +60,7 @@ const Login = () => {
         }
     }
 
+    // Custom errors, when something happen into server.
     useEffect(() => {
         if (error) {
             switch (error?.code) {
@@ -79,6 +75,14 @@ const Login = () => {
             }
         }
     }, [error])
+
+    // Submit button visibibity handle
+    useEffect(() => {
+        if (userInfo.email && userInfo.password) {
+            setIsFieldsEmpty(false)
+        }
+    }, [userInfo.email, userInfo.password])
+
 
     return (
         <div className='md:w-1/4 sm:w-1/2 w-11/12 mx-auto mt-5 mb-32  min-h-full'>

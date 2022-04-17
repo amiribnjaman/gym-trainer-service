@@ -4,8 +4,9 @@ import useFirebase from '../../hooks/useFirebase';
 
 const RequireAuth = ({ children }) => {
     const { user, loading } = useFirebase()
-    let location = useLocation();
+    const location = useLocation();
 
+    // Show spinner when data loading
     if (loading) {
         return <div className='my-20'>
             <svg role="status" class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +16,7 @@ const RequireAuth = ({ children }) => {
         </div>
     }
 
+    // User redirection handle
     if (!user) {
         // Redirect them to the /login page, but save the current location they were
         // trying to go to when they were redirected. This allows us to send them
