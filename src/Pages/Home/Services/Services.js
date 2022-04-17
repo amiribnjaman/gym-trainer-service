@@ -18,7 +18,7 @@ const Services = () => {
                 <hr className='w-24 mx-auto h-[2px] rounded-full bg-red-300' />
                 <hr className='w-20 mx-auto h-[2px] rounded-full bg-red-300' />
             </div>
-            <div className='grid md:grid-cols-3 gap-6'>
+            <div className='grid md:grid-cols-3 gap-4'>
                 {
                     services.map(service => <ServiceCard key={service.id} service={service} />)
                 }

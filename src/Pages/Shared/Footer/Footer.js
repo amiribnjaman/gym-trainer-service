@@ -7,7 +7,7 @@ const Footer = () => {
     const currentYear = date.getFullYear()
     return (
         <div>
-            <footer className="p-4 bg-gray-200 rounded-lg shadow md:px-6 py-8 dark:bg-gray-800">
+            <footer className="p-4 bg-gray-200 shadow md:px-6 py-8 dark:bg-gray-800">
                 <div className=' w-11/12 mx-auto'>
                     <div className="sm:flex sm:items-center sm:justify-between">
                         <NavLink to='/' className="md:flex block text-center items-center">
@@ -34,7 +34,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <hr className="my-6 border-gray-400 sm:mx-auto lg:my-8" />
-                    <span className="flex justify-center text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {currentYear} <Link to="/" className="hover:underline"><h4 className='ml-1'> SMART <span className='text-red-600 font-bold'>GYM</span> TRAINER</h4></Link>. All Rights Reserved.
+                    <span className="flex justify-center text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {currentYear} <Link to="/" className="hover:underline"><h4 className='ml-1'> SMART <span className='text-red-500 font-bold'>GYM</span> TRAINER .</h4></Link> All Rights Reserved.
                     </span>
                 </div>
             </footer>

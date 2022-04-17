@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Morsh Handson",
+        "comment": "When I was tense about my health then I find out about this awesome mentor. He is just incredible. He provides beautiful services. I was a fat man but He made me a Looking handsome. Thanks, SMART GYM TRAINER",
+        "image": "./user/user1.jpg",
+        "date": "December 2021"
+    },
+    {
+        "id": 2,
+        "name": "Chris rock",
+        "comment": "My friend (He was also trained by SMART GYM TRAINER) refer me to him. Cause My health was at risk and I was depressed about this. And I am happy with my health. He magically makes it.",
+        "image": "./user/user2.jpg",
+        "date": "January 2022"
+    },
+    {
+        "id": 3,
+        "name": "Hasid Ahmadi",
+        "comment": "He is one of the most favourite people and mentors. His advice, directions and motivation make me healthy and happy. Thanks a lot, man. Take love.",
+        "image": "./user/user3.jpg",
+        "date": "April 2022"
+    }
+]
