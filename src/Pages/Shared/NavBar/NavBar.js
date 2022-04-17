@@ -8,8 +8,8 @@ const NavBar = () => {
     const [showMenu, setShowMenu] = useState(false)
 
     return (
-        <div>
-            <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+        <div className='sticky top-0 z-40 border-b border-slate-300'>
+            <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
                 <div className="containe pt-2 w-11/12 flex flex-wrap justify-between items-center mx-auto">
                     <NavLink to='/' className="flex items-center">
                         <div className='w-1/4'>

@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Motivation & Directions",
+        "desc": "Every one can start doing exercise without a gymnesiam but consestency is the one of most import thing in any portion of life. Many person lost their motivation after few days doing the exercise. But with a trainer is doesn't happend. A trainer help to gain the goal with a pure motivation and directions.",
+        "price": "50",
+        "img": "https://i.ibb.co/KsBY2Q2/trainer2.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Simple Calisthenics",
+        "desc": "When you got realized that, you're grothing weight as resistance, you're doing calisthenics. One of the biggest benefits of calisthenics is their convenience. With a smart trainer you can find out the best Calisthenics way.",
+        "price": "75",
+        "img": "https://i.ibb.co/7YpfrXp/trainer1.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Strength Training",
+        "desc": "Building muscle matters. In fact, your strength and muscle health are leading factors in longevity. That's because doing activities that strengthen and build lean, active muscle can help reduce the risk of chronic disease, improve mobility and function and protect brain health.",
+        "price": "99",
+        "img": "https://i.ibb.co/58M3JHd/trainer3.jpg"
+    }
+    
+]
