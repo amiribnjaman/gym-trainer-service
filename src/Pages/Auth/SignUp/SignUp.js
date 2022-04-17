@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/img/Glogo.png';
 import auth from '../../../firebase.init'
 import useFirebase from '../../hooks/useFirebase';
@@ -14,6 +14,7 @@ const SignUp = () => {
     })
 
     const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
+    const navigate = useNavigate()
 
     const [userError, setUserError] = useState({
         nameErr: '',
@@ -29,10 +30,26 @@ const SignUp = () => {
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
+        emailPassError,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user])
 
+    useEffect(() => {
+        if (emailPassError) {
+            switch (emailPassError?.code) {
+                case 'auth/email-already-in-use':
+                    setUserError({ ...userError, others: 'Email-already exits. Please Login.' })
+                    break;
+                default:
+                    setUserError({ ...userError, others: 'Something went wrong.' })
+            }
+        }
+    }, [userError, emailPassError])
 
     useEffect(() => {
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
@@ -95,7 +112,6 @@ const SignUp = () => {
             setUserError({ ...userError, passwordErr: 'Password is too weak' })
             setUserInfo({ ...userInfo, password: '' })
         }
-
     }
 
     const handleConfirmPasswordonChange = e => {
@@ -114,7 +130,7 @@ const SignUp = () => {
         <div className='md:w-1/4 sm:w-1/2 w-11/12 mx-auto mt-2 mb-32  min-h-full'>
             <div>
                 <h4 className='mt-14 md:mt-5 font-semibold text-2xl'>Create an <span className='text-red-500'>Account.</span></h4>
-                <h4>{customGoogleErr && customGoogleErr}</h4>
+                <h4 className='text-red-500 text-left text-[14px]'>{customGoogleErr && customGoogleErr}</h4>
                 <form
                     onSubmit={handleSignupForm}
                     className='shadow-lg px-7 rounded-md pb-6 mt-4'>
@@ -148,6 +164,7 @@ const SignUp = () => {
                         <label htmlFor="floating_password" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform left-1 -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm Password<span className='text-red-500'>&#42;</span></label>
                         <p className='text-red-600 font-semibold text-[11px] text-left'>{userError?.confirmPassErr}</p>
                     </div>
+                    <h4 className='text-red-600 text-[13px] text-left'>{userError?.others && userError?.others}</h4>
                     <div className='w-full'>
                         <button
                             type="submit" className={`${isFieldsEmpty ? 'cursor-not-allowed bg-red-400' : 'cursor-pointer bg-red-600'}  text-white mt-4 cursor-not-allowed  block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-sm text-center`}>Sign up</button>
