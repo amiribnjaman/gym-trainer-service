@@ -46,16 +46,16 @@ const NavBar = () => {
                                 <CustomLink to='/blog'>Blog</CustomLink>
                             </li>
                             {user ?
-                                <button onClick={handleLogout}>Logout</button>
+                                <button onClick={handleLogout} className="block bg-blue-500 text-white rounded-full px-10 py-2.5 hover:bg-blue-600">Logout</button>
                                 :
                                 <li>
                                     <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
-                                </li>}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                    </li>}
+                </ul>
         </div>
+                </div >
+            </nav >
+        </div >
     );
 };
 
