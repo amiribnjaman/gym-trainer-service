@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Logo from '../../../Assets/img/logo.png'
-import './NavBar.css'
+import Logo from '../../../Assets/img/logo.png';
+import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
 
@@ -10,10 +10,10 @@ const NavBar = () => {
     return (
         <div>
             <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-                <div className="containe pt-1 w-11/12 flex flex-wrap justify-between items-center mx-auto">
+                <div className="containe pt-2 w-11/12 flex flex-wrap justify-between items-center mx-auto">
                     <NavLink to='/' className="flex items-center">
-                        <div className='w-1/3'>
-                            <img className='w-11/12' src={Logo} alt="" />
+                        <div className='w-1/4'>
+                            <img className='w-full' src={Logo} alt="" />
                         </div>
                         <div className='logo-text text-left'>
                             <h4>SMART <span className='text-red-600 font-bold'>GYM</span> TRAINER</h4>
@@ -27,7 +27,7 @@ const NavBar = () => {
                         </button>
                     </div>
                     <div className={`${showMenu ? 'block' : 'hidden'} justify-between items-center w-full md:flex md:w-auto md:order-1`} id="mobile-menu-3">
-                        <ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                        <ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-10 md:mt-0 md:text-sm md:font-medium">
                             <li>
                                 <CustomLink to='/'>Home</CustomLink>
                             </li>
@@ -44,9 +44,6 @@ const NavBar = () => {
                     </div>
                 </div>
             </nav>
-
-
-
         </div>
     );
 };
