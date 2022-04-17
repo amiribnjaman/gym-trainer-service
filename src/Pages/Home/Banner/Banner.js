@@ -10,7 +10,7 @@ const Banner = () => {
                 <h2 className='text-white text-2xl md:text-5xl font-bold font-sans'>KEEP YOUR BODY FIT & <span className='text-red-600'>STRONG</span></h2>
                 <p className='text-slate-200 mt-2 text-sm'>with SMART <span className='text-red-500'>GYM</span> TRAINER</p>
                 <div className='md:mt-5 mt-1'>
-                    <button className="block mx-auto bg-red-500 text-white font-semibold rounded-lg px-14 py-2.5 hover:bg-red-600">Explore More</button>
+                    <button className="block mx-auto bg-red-500 text-white font-semibold rounded-lg px-14 py-2.5 hover:bg-red-600">Read More</button>
                 </div>
             </div>
         </div>
