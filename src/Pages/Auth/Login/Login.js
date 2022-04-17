@@ -11,13 +11,13 @@ const Login = () => {
     // }
 
     return (
-        <div className='w-1/4 mx-auto mt-5 mb-32  min-h-full'>
+        <div className='md:w-1/4 sm:w-1/2 w-11/12 mx-auto mt-5 mb-32  min-h-full'>
             {/* <img src={Banner} alt="" /> */}
             <div>
                 {/* <img width={170} className='mx-auto' src={Logo} alt="" /> */}
-                <h4 className='mt-14 font-semibold text-2xl'>Welcome Back! <span className='text-red-500'>Login</span></h4>
+                <h4 className='mt-20 md:mt-12 font-semibold text-[1.4rem]'>Welcome Back! <span className='text-red-500'>Login</span></h4>
                 <form
-                    className='shadow-lg px-7 rounded-md py-8 mt-6'>
+                    className='shadow-lg px-7 rounded-md py-8 mt-2'>
                     <div className="relative z-0 mb-6 w-full group">
                         <input type="email" name="floating_email" className="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b appearance-none focus:border-red-400 focus:outline-none focus:ring-0 peer" placeholder=" " required="" />
                         <label for="floating_email" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 left-1 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Email <span className='text-red-500'>&#42;</span></label>
@@ -38,7 +38,7 @@ const Login = () => {
                         <div className='w-1/3 bg-gray-500 h-[1px]  ml-3 mt-1'></div>
                     </div>
                     <button
-                        className='flex justify-evenly items-center mt-2 border hover:shadow border-blue-200  rounded-full w-full'>
+                        className='flex py-[2px] justify-evenly items-center mt-2 border hover:shadow border-blue-200  rounded-full w-full'>
                         <img className='w-6 py-1' src={GoogleLogo} alt="" />
                         <span className='font-semibold'>Sing in with Google</span>
                     </button>

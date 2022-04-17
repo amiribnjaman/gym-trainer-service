@@ -11,7 +11,7 @@ const Comments = () => {
             .then(res => SetUserComments(res))
     }, [])
     return (
-        <div className='w-11/12 mx-auto mt-24'>
+        <div className='w-11/12 mx-auto mt-28'>
             <div className='mb-7'>
                 <h2 className='font-bold text-2xl mb-2'>What Clients Says?</h2>
                 <hr className='w-20 mx-auto h-[2px] rounded-full bg-red-300' />
@@ -26,7 +26,7 @@ const Comments = () => {
                 </div>
                 <div className='relative md:border-l text-left border-gray-200'>
                     <div className="">
-                        <div class="mb-6 ml-4">
+                        <div class="mb-6 md:ml-4">
                             <label for="message" class="block mb-2 mt-2 text-md font-medium text-gray-900 ">Your message</label>
                             <p className='text-sm text-slate-500 mb-2'>Share your feelings or experience about your mentor SMART GYM TRAINER</p>
                             <textarea id="message" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-400 focus:border-blue-400 " placeholder="Leave your comment..."></textarea>
