@@ -24,13 +24,13 @@ const Comments = () => {
                         userComments.map(userComment => <SingleComment key={comment.id} userComment={userComment} />)
                     }
                 </div>
-                <div className='relative border-l text-left border-gray-200'>
+                <div className='relative md:border-l text-left border-gray-200'>
                     <div className="">
                         <div class="mb-6 ml-4">
                             <label for="message" class="block mb-2 mt-2 text-md font-medium text-gray-900 ">Your message</label>
                             <p className='text-sm text-slate-500 mb-2'>Share your feelings or experience about your mentor SMART GYM TRAINER</p>
                             <textarea id="message" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-400 focus:border-blue-400 " placeholder="Leave a comment..."></textarea>
-                            <button className="block mt-4 bg-blue-500 text-white font-semibold rounded-full px-14 py-2.5 hover:bg-blue-600">Place Comment</button>
+                            <button className="block mx-auto md:mx-0 mt-4 bg-blue-500 text-white font-semibold rounded-full px-14 py-2.5 hover:bg-blue-600">Place Comment</button>
                         </div>
                     </div>
                 </div>
