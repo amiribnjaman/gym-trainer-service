@@ -29,7 +29,7 @@ const SignUp = () => {
     const [
         createUserWithEmailAndPassword,
         user,
-        loading,
+        ,
         emailPassError,
     ] = useCreateUserWithEmailAndPassword(auth);
 
@@ -64,7 +64,7 @@ const SignUp = () => {
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
             createUserWithEmailAndPassword(userInfo.email, userInfo.password)
         } else {
-            setUserError({ ...userError, others: 'Fields must not be empty.' })
+            setUserError({ ...userError, others: 'All (*) mark fields are required.' })
         }
     }
 

@@ -3,9 +3,17 @@ import Logo from '../../../Assets/img/logo.png';
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
+import useFirebase from '../../hooks/useFirebase';
+import { signOut } from 'firebase/auth';
+import auth from '../../../firebase.init';
 
 const NavBar = () => {
     const [showMenu, setShowMenu] = useState(false)
+    const { user } = useFirebase()
+
+    const handleLogout = () => {
+        signOut(auth);
+    }
 
     return (
         <div className='sticky top-0 z-40 border-b border-slate-300'>
@@ -37,9 +45,12 @@ const NavBar = () => {
                             <li>
                                 <CustomLink to='/blog'>Blog</CustomLink>
                             </li>
-                            <li>
-                                <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
-                            </li>
+                            {user ?
+                                <button onClick={handleLogout}>Logout</button>
+                                :
+                                <li>
+                                    <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
+                                </li>}
                         </ul>
                     </div>
                 </div>

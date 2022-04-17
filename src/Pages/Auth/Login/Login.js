@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/img/Glogo.png';
 import useFirebase from '../../hooks/useFirebase';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -10,20 +10,28 @@ const Login = () => {
         email: '',
         password: ''
     })
+    const { handleSigninWithGoogle, user } = useFirebase()
+    const location = useLocation()
+
+    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
+    const navigate = useNavigate()
+
+    let from = location.state?.from?.pathname || "/";
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     const [customError, setCustomError] = useState('')
 
     const [
         signInWithEmailAndPassword,
-        user,
-        loading,
+        ,
+        ,
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [isFieldsEmpty, setIsFieldsEmpty] = useState(true)
-    const navigate = useNavigate()
 
-    const { handleSigninWithGoogle } = useFirebase()
 
     const handleLoginForm = e => {
         e.preventDefault()
@@ -56,12 +64,6 @@ const Login = () => {
             setUserInfo({ ...userInfo, password: '' })
         }
     }
-
-    useEffect(() => {
-        if (user) {
-            navigate('/')
-        }
-    }, [user])
 
     useEffect(() => {
         if (error) {
