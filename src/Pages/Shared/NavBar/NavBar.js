@@ -38,7 +38,7 @@ const NavBar = () => {
                                 <CustomLink to='/blog'>Blog</CustomLink>
                             </li>
                             <li>
-                                <NavLink to="#" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
+                                <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
                             </li>
                         </ul>
                     </div>
