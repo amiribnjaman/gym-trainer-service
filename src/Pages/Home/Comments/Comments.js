@@ -21,7 +21,7 @@ const Comments = () => {
             <div className='grid md:grid-cols-2 gap-5 mt-10 mb-10'>
                 <div>
                     {
-                        userComments.map(userComment => <SingleComment key={comment.id} userComment={userComment} />)
+                        userComments.map(userComment => <SingleComment key={userComment.id} userComment={userComment} />)
                     }
                 </div>
                 <div className='relative md:border-l text-left border-gray-200'>

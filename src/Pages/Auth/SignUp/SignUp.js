@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/img/Glogo.png';
-// import useFirebase from '../../hooks/useFirebase';
+import auth from '../../../firebase.init'
+import useFirebase from '../../hooks/useFirebase';
 
 const SignUp = () => {
+    const { handleSigninWithGoogle, customGoogleErr } = useFirebase()
+
+    const handleSignupForm = e => {
+        e.preventDefault()
+    }
 
     return (
         <div className='md:w-1/4 sm:w-1/2 w-11/12 mx-auto mt-2 mb-32  min-h-full'>
-            {/* <img src={Banner} alt="" /> */}
             <div>
-                {/* <img width={170} className='mx-auto' src={Logo} alt="" /> */}
                 <h4 className='mt-14 md:mt-5 font-semibold text-2xl'>Create an <span className='text-red-500'>Account.</span></h4>
                 <form
+                    onSubmit={handleSignupForm}
                     className='shadow-lg px-7 rounded-md pb-6 mt-1'>
                     <p className='text-red-600 text-[12px] mb-2 text-left'></p>
                     <div className="relative z-0 mb-5 w-full group">
@@ -51,12 +56,13 @@ const SignUp = () => {
                         <div className='w-1/3 bg-gray-500 h-[1px]  ml-3 mt-1'></div>
                     </div>
                     <button
+                        onClick={handleSigninWithGoogle}
                         className='flex py-[2px] justify-evenly items-center mt-2 border hover:shadow border-blue-200 rounded-full w-full'>
                         <img className='w-6 py-1' src={GoogleLogo} alt="" />
                         <span className='font-semibold'>Sing in with Google</span>
                     </button>
-                </form>
 
+                </form>
             </div>
 
         </div>
