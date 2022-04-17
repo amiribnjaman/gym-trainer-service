@@ -34,7 +34,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <hr className="md:my-6 mb-2 border-gray-400 sm:mx-auto lg:my-8" />
-                    <span className="sm:flex justify-center text-sm text-gray-500 sm:text-center dark:text-gray-400"><span>&copy; {currentYear}</span> <Link to="/" className="hover:underline"><h4 className='ml-1'> SMART <span className='text-red-500 font-bold'>GYM</span> TRAINER .</h4></Link> <span>All Rights Reserved.</span>
+                    <span className="sm:flex justify-center text-sm text-gray-500 sm:text-center dark:text-gray-400"><span>&copy; {currentYear}</span> <Link to="/" className="hover:underline"><h4 className='ml-1'> SMART <span className='text-red-500 font-bold '>GYM</span> TRAINER. </h4></Link> <span className='ml-[3px]'> All Rights Reserved.</span>
                     </span>
                 </div>
             </footer>
