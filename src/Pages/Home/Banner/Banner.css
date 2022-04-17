@@ -1,0 +1,8 @@
+.banner-section {
+    position: relative;
+}
+
+.banner-section .banner-text {
+    position: absolute;
+    transform: translateY(-50%);
+}
