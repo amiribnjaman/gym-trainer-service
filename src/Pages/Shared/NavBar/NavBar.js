@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../../../Assets/img/logo.png';
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
@@ -10,6 +10,7 @@ import auth from '../../../firebase.init';
 const NavBar = () => {
     const [showMenu, setShowMenu] = useState(false)
     const { user } = useFirebase()
+    const username = user?.displayName?.split(' ')[0]
 
     // Handle logout
     const handleLogout = () => {
@@ -46,14 +47,22 @@ const NavBar = () => {
                             <li>
                                 <CustomLink to='/blog'>Blog</CustomLink>
                             </li>
+                            {username ?
+                                <li>
+                                    <p className='text-green-500 font-bold text-[12px]'>{username}</p>
+                                </li>
+                                :
+                                ''
+                            }
+
                             {user ?
                                 <button onClick={handleLogout} className="block bg-blue-500 text-white rounded-full px-10 py-2.5 hover:bg-blue-600">Logout</button>
                                 :
                                 <li>
                                     <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
-                    </li>}
-                </ul>
-        </div>
+                                </li>}
+                        </ul>
+                    </div>
                 </div >
             </nav >
         </div >
