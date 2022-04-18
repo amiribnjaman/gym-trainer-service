@@ -44,7 +44,7 @@ const NavBar = () => {
                                 <CustomLink to='/about'>About Me</CustomLink>
                             </li>
                             <li className='my-2 md:my-0'>
-                                <CustomLink to='/blog'>Blog</CustomLink>
+                                <CustomLink to='/blogs'>Blogs</CustomLink>
                             </li>
 
                             {user ?

@@ -24,7 +24,7 @@ function App() {
           </RequireAuth>
         } />
         <Route path='/about' element={<About />} />
-        <Route path='/blog' element={<BlogPage />} />
+        <Route path='/blogs' element={<BlogPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='*' element={<NotFound />} />
