@@ -20,16 +20,13 @@ const Footer = () => {
                         </NavLink>
                         <ul className="flex justify-center flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
                             <li>
-                                <Link to="#" className="mr-4 hover:underline md:mr-6 ">About</Link>
+                                <Link to="/about" className="mr-4 hover:underline md:mr-6 ">About Me</Link>
                             </li>
                             <li>
-                                <Link to="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
+                                <Link to="/" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
                             </li>
                             <li>
-                                <Link to="#" className="mr-4 hover:underline md:mr-6 ">Licensing</Link>
-                            </li>
-                            <li>
-                                <Link to="#" className="hover:underline">Contact</Link>
+                                <Link to="/blog" className="mr-4 hover:underline md:mr-6">Blog</Link>
                             </li>
                         </ul>
                     </div>
