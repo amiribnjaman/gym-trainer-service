@@ -42,9 +42,9 @@ const Login = () => {
         e.preventDefault()
         if (userInfo.email && userInfo.password) {
             signInWithEmailAndPassword(userInfo.email, userInfo.password)
-            setUserInfo({...userInfo, err: ''})
+            setUserInfo({ ...userInfo, err: '' })
         } else {
-            setUserInfo({...userInfo, err: 'Provide your email & password to login.'})
+            setUserInfo({ ...userInfo, err: 'Provide your email & password to login.' })
             setCustomError('')
         }
     }
@@ -119,13 +119,13 @@ const Login = () => {
                         <input
                             onChange={handleEmailonChange}
                             type="email" name="floating_email" className="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b appearance-none focus:border-red-400 focus:outline-none focus:ring-0 peer" placeholder=" " required="" />
-                        <label for="floating_email" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 left-1 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Email <span className='text-red-500'>&#42;</span></label>
+                        <label htmlFor="floating_email" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 left-1 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Email <span className='text-red-500'>&#42;</span></label>
                     </div>
                     <div className="relative z-0 mb-6 w-full group">
                         <input
                             onChange={handlePasswordonChange}
                             type="password" name="floating_password" id="floating_password" className="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b appearance-none focus:outline-none focus:ring-0 focus:border-red-400 peer" placeholder=" " required="" />
-                        <label for="floating_password" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform left-1 -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password <span className='text-red-500'>&#42;</span></label>
+                        <label htmlFor="floating_password" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform left-1 -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password <span className='text-red-500'>&#42;</span></label>
                     </div>
                     <p className=' mt-2 text-red-500 text-left text-[12px] ml-2 font-semibold'>{userInfo.err} </p>
                     <div className='w-full'>
@@ -148,11 +148,11 @@ const Login = () => {
                         <span className='font-semibold'>Sing in with Google</span>
                     </button>
                     <ToastContainer />
-                </form>
+                </form >
 
-            </div>
+            </div >
 
-        </div>
+        </div >
     );
 };
 

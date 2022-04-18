@@ -1,12 +1,38 @@
-# Getting Started with Create React App
+# SMART GYM TRAINER
 
-SMART GYM TRAINER [Create React App](https://github.com/facebook/create-react-app).
+SMART GYM TRAINER [Take a look here](https://smart-gym-trainer.netlify.app).
 
-## Available Scripts
+## Project short description
 
-In the project directory, you can run:
+- This project is about gym trainer services, here simply describe project features: 
 
-### `npm start`
+    - At first, Home page. Home page hold a navbar. Navbar hold a logo, home, blog, about and login button. and a banner a services section. Here describe about services. And the an extra part, that hold user fedback or comment
+
+    - When user clicked a button in the services part to explore more if user doesn't authenticated the system will send the user to loginpage.
+
+    - In the bottom, Site hold a footer. Here a logo text, copyright text and some link.
+
+    - Site also has a login and signup page. User can create a new user and can existing user can login.
+
+    - Additionaly, User can signin with google account etc
+
+
+- Technologies that used for this site:
+
+    - First of all, Our beloved React.
+
+    - react router dom
+
+    - Tailwind css frameword for styled
+
+    - flowbite tailwind library
+
+    - react firebase hooks for firebase authentication
+    
+    - tostify
+
+
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
