@@ -14,7 +14,6 @@ const Login = () => {
     const [customError, setCustomError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
-    const [password, setPassword] = useState('');
     const [sendPasswordResetEmail, sending, passResetError] = useSendPasswordResetEmail(auth);
 
     const [userInfo, setUserInfo] = useState({

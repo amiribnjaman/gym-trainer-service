@@ -3,13 +3,11 @@ import useFirebase from '../hooks/useFirebase';
 
 const Checkout = () => {
     const { user } = useFirebase()
-    console.log(user?.email);
     return (
         <div className='md:w-3/12 mx-auto my-12'>
             <h2 className='text-xl font-semibold'>Make a <span className='text-blue-600'>Checkout</span></h2>
             <form onSubmit={(e) => e.preventDefault()}
                 className='shadow-lg px-7 rounded-md pb-6 mt-4'>
-                <p className='text-red-600 text-[12px] mb-2 text-left'></p>
                 <div className="relative z-0 mb-5 w-full group">
                     <input
                         type="text" name="floating_name" className="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b appearance-none focus:border-red-400 focus:outline-none focus:ring-0  peer" placeholder=" " required="" />
@@ -43,7 +41,7 @@ const Checkout = () => {
                 </div>
                 <div className='w-full'>
                     <button
-                        type="submit" className={`  text-white mt-4 bg-blue-500 block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm text-center`}>Sign up</button>
+                        type="submit" className={`  text-white mt-4 bg-blue-500 block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm text-center`}>Checkout</button>
                 </div>
             </form>
         </div>

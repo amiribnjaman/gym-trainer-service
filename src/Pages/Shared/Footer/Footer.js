@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-// import Logo from '../../../Linkssets/img/logo.png';
 
 const Footer = () => {
     const date = new Date()
@@ -11,9 +10,6 @@ const Footer = () => {
                 <div className=' w-11/12 mx-auto'>
                     <div className="sm:flex sm:items-center sm:justify-between">
                         <NavLink to='/' className="md:flex block text-center items-center">
-                            {/* <div className='w-1/2'>
-                                <img className='w-full' src={Logo} alt="" />
-                            </div> */}
                             <div className='font-semibold mb-1 md:mb-0'>
                                 <h4>SMART <span className='text-red-600 font-bold'>GYM</span> TRAINER</h4>
                             </div>
