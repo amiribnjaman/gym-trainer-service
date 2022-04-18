@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/img/Glogo.png';
 import useFirebase from '../../hooks/useFirebase';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdatePassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const { handleSigninWithGoogle, user } = useFirebase()
@@ -11,6 +14,9 @@ const Login = () => {
     const [customError, setCustomError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
+    const [password, setPassword] = useState('');
+    const [updatePassword, updating, passUpError] = useUpdatePassword(auth);
+    const [sendPasswordResetEmail, sending, passResetError] = useSendPasswordResetEmail(auth);
 
     const [userInfo, setUserInfo] = useState({
         email: '',
@@ -41,7 +47,7 @@ const Login = () => {
 
     // Validation email field
     const handleEmailonChange = e => {
-        const userEmail = e.target.value;
+        const userEmail = e.target.value
         const emailRegex = /\S+@\S+\.\S+/
         if (emailRegex.test(userEmail)) {
             setUserInfo({ ...userInfo, email: userEmail })
@@ -67,11 +73,8 @@ const Login = () => {
                 case 'auth/invalid-password':
                     setCustomError('Email or password Invalid.')
                     break;
-                case 'auth/invalid-email':
-                    setCustomError('Email or password Invalid.')
-                    break;
                 default:
-                    setCustomError('Something went wrong. Please try again.')
+                    setCustomError('Email or password Invalid.')
             }
         }
     }, [error])
@@ -82,6 +85,15 @@ const Login = () => {
             setIsFieldsEmpty(false)
         }
     }, [userInfo.email, userInfo.password])
+
+
+    // Handle password reset
+    const handlePasswordReset = async () => {
+        await sendPasswordResetEmail(userInfo.email)
+        toast.warn('Password reset link sent to your email.', {
+            position: toast.POSITION.TOP_CENTER
+        })
+    }
 
 
     return (
@@ -108,7 +120,10 @@ const Login = () => {
                     <div className='w-full'>
                         <button type="submit" className={`${isFieldsEmpty ? 'cursor-not-allowed bg-red-400' : 'cursor-pointer bg-red-600'}  text-white mt-4 cursor-not-allowed  block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-sm text-center`}>Login</button>
                     </div>
-                    <Link to='/signup' className='text-sm my-3 block text-red-500 font-semibold'>Haven't Account? Create One.</Link>
+                    <Link to='/signup' className='text-sm mt-3 block text-red-500 font-semibold'>Haven't Account? Signup first.</Link>
+                    <buttton
+                        onClick={handlePasswordReset}
+                        className='text-sm my-1 hover:underline cursor-pointer block text-red-500 font-semibold'>Forgot Password.</buttton>
 
                     <div className='flex justify-center items-center my-3'>
                         <div className='w-1/3 bg-gray-500 h-[1px] mr-3 mt-1'></div>
@@ -121,6 +136,7 @@ const Login = () => {
                         <img className='w-6 py-1' src={GoogleLogo} alt="" />
                         <span className='font-semibold'>Sing in with Google</span>
                     </button>
+                    <ToastContainer />
                 </form>
 
             </div>

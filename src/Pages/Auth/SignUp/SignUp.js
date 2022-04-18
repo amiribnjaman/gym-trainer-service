@@ -4,6 +4,8 @@ import GoogleLogo from '../../../Assets/img/Glogo.png';
 import auth from '../../../firebase.init'
 import useFirebase from '../../hooks/useFirebase';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const { handleSigninWithGoogle, customGoogleErr } = useFirebase()
@@ -72,6 +74,9 @@ const SignUp = () => {
         e.preventDefault()
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
             createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+            toast.success('User created successfully.', {
+                position: toast.POSITION.TOP_CENTER
+            });
         } else {
             setUserError({ ...userError, others: 'All (*) mark fields are required.' })
         }
@@ -196,7 +201,7 @@ const SignUp = () => {
                         <img className='w-6 py-1' src={GoogleLogo} alt="" />
                         <span className='font-semibold'>Sing in with Google</span>
                     </button>
-
+                    <ToastContainer />
                 </form>
             </div>
 
