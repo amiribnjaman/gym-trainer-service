@@ -50,7 +50,7 @@ const SignUp = () => {
         if (emailPassError) {
             switch (emailPassError?.code) {
                 case 'auth/email-already-in-use':
-                    setUserError({ ...userError, others: 'Email-already exits. Please Login.' })
+                    setUserError({ ...userError, others: 'Email-already exists. Please Login.' })
                     break;
                 default:
                     setUserError({ ...userError, others: 'Something went wrong.' })
@@ -74,9 +74,11 @@ const SignUp = () => {
         e.preventDefault()
         if (userInfo.name && userInfo.email && userInfo.password && userInfo.confirmPassword) {
             createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-            toast.success('User created successfully.', {
-                position: toast.POSITION.TOP_CENTER
-            });
+            if (!userError.others) {
+                toast.success('User created successfully.', {
+                    position: toast.POSITION.TOP_CENTER
+                });
+            }
         } else {
             setUserError({ ...userError, others: 'All (*) mark fields are required.' })
         }
@@ -182,7 +184,7 @@ const SignUp = () => {
                         <label htmlFor="floating_password" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform left-1 -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm Password<span className='text-red-500'>&#42;</span></label>
                         <p className='text-red-600 font-semibold text-[11px] text-left'>{userError?.confirmPassErr}</p>
                     </div>
-                    <h4 className='text-red-600 text-[13px] text-left'>{userError?.others && userError?.others}</h4>
+                    <h4 className='text-red-600 text-[14px] text-left'>{userError?.others && userError?.others}</h4>
                     <div className='w-full'>
                         <button
                             type="submit" className={`${isFieldsEmpty ? 'cursor-not-allowed bg-red-400' : 'cursor-pointer bg-red-600'}  text-white mt-4 cursor-not-allowed  block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-sm text-center`}>Sign up</button>

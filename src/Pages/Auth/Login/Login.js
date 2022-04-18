@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/img/Glogo.png';
 import useFirebase from '../../hooks/useFirebase';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdatePassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,7 +43,7 @@ const Login = () => {
             signInWithEmailAndPassword(userInfo.email, userInfo.password)
             setUserInfo({ ...userInfo, err: '' })
         } else {
-            setUserInfo({ ...userInfo, err: 'Provide your email & password to login.' })
+            setUserInfo({ ...userInfo, err: 'Provide your valid email & password to login.' })
             setCustomError('')
         }
     }
@@ -126,7 +126,7 @@ const Login = () => {
                             type="password" name="floating_password" id="floating_password" className="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b appearance-none focus:outline-none focus:ring-0 focus:border-red-400 peer" placeholder=" " required="" />
                         <label htmlFor="floating_password" className="absolute text-sm text-gray-600 dark:text-gray-400 duration-300 transform left-1 -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password <span className='text-red-500'>&#42;</span></label>
                     </div>
-                    <p className=' mt-2 text-red-500 text-left text-[12px] ml-2 font-semibold'>{userInfo.err} </p>
+                    <p className=' mt-2 text-red-500 text-left text-[14px] ml-2 font-semibold'>{userInfo?.err} </p>
                     <div className='w-full'>
                         <button type="submit" className={`${isFieldsEmpty ? 'cursor-not-allowed bg-red-400' : 'cursor-pointer bg-red-600'}  text-white mt-4 cursor-not-allowed  block py-3 rounded-full w-full focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-sm text-center`}>Login</button>
                     </div>

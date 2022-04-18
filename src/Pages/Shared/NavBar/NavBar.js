@@ -37,20 +37,20 @@ const NavBar = () => {
                     </div>
                     <div className={`${showMenu ? 'block' : 'hidden'} justify-between items-center w-full md:flex md:w-auto md:order-1`} id="mobile-menu-3">
                         <ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-10 md:mt-0 md:text-sm md:font-medium">
-                            <li>
+                            <li className='my-2 md:my-0'>
                                 <CustomLink to='/'>Home</CustomLink>
                             </li>
-                            <li>
+                            <li className='my-2 md:my-0'>
                                 <CustomLink to='/about'>About Me</CustomLink>
                             </li>
-                            <li>
+                            <li className='my-2 md:my-0'>
                                 <CustomLink to='/blog'>Blog</CustomLink>
                             </li>
 
                             {user ?
-                                <button onClick={handleLogout} className="block bg-blue-500 text-white rounded-full px-10 py-2.5 hover:bg-blue-600">Logout</button>
+                                <button onClick={handleLogout} className="block my-2 md:my-0 bg-blue-500 text-white rounded-full px-10 py-2.5 hover:bg-blue-600">Logout</button>
                                 :
-                                <li>
+                                <li className='my-2 md:my-0'>
                                     <NavLink to="/login" type='button' className="block bg-red-600 text-white rounded-full px-10 py-2.5 hover:bg-red-700" aria-current="page">Login</NavLink>
                                 </li>}
                         </ul>
