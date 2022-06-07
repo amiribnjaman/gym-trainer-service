@@ -6,6 +6,10 @@ SMART GYM TRAINER [Take a look here](https://smart-gym-trainer.netlify.app).
 
 - This project is about gym trainer services, here simply describe project features: 
 
+    - This is a responsive Front-end trainer project where a trainer provide some services.
+
+    - A logged in User can order a service.
+
     - At first, In the top site hold a navbar. Navbar hold a logo, home, blog, about and login button. 
     
     - Then a banner image and some text and a button.first-letter:
@@ -19,7 +23,7 @@ SMART GYM TRAINER [Take a look here](https://smart-gym-trainer.netlify.app).
     - In the bottom, Site hold a footer. Here a logo text, copyright text and some links.
 
 
-    - For authentication site have a login and signup pages. User can create a new user using signup page  and existing user can login.
+    - For authentication site have login and signup pages. User can create a new user using signup page and existing user can login. And also singin using google.
 
     - Additionaly, User can signin with google account etc.
 
